@@ -1,0 +1,30 @@
+<section class="create-content">
+  <div class="container">
+    <div class="row">
+      <form class="col s12" ng-submit="$ctrl.savePetVaccine()">
+        <div class="row">    
+
+          <!--Próxima vacuna-->
+          <div class="input-field col s12">
+            <label for="proxima-vacuna" ng-hide="$ctrl.Vacunas.tipo.length > 0">{{$ctrl.VProxima.proxima_vacuna}}</label>
+            <select id="proxima-vacuna" ng-model="$ctrl.VProxima.proxima_vacuna" material-select watch required>
+              <optgroup ng-repeat="Especie in $ctrl.Especies.data" label="{{ Especie.nombre }}">
+                <option ng-repeat="Vacuna in Especie.vaccines" value="{{ Vacuna.tipo }}">{{ Vacuna.tipo }}</option>
+              </optgroup>
+            </select>
+          </div> 
+
+          <!--Próxima fecha-->
+          <div class="input-field col s12">
+            <label for="proxima-fecha">Fecha</label>
+            <input id="proxima-fecha" type="text" class="datepicker" ng-model="$ctrl.VProxima.proxima_fecha" required>
+          </div> 
+          
+        </div>
+        <div class="input-field">
+          <button class="btn btn-create waves-effect" type="submit">Actualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

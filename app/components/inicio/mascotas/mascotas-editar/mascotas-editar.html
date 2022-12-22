@@ -1,0 +1,157 @@
+<main class="crear-mascota">
+  <div class="loading">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-orange-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <form class="col s12 m6 offset-m2 hoverable" name="petForm">
+        <div class="row">
+
+          <!--Nombre-->
+          <div class="input-field col s12">
+            <input id="nombre-mascota" type="text" name="nombre" class="validate" ng-model="$ctrl.Mascotas.nombre" ng-minlength="3" ng-maxlength="10" required>
+            <p ng-show="petForm.nombre.$error.minlength" class="help-block">Nombre demasiado corto.</p>
+            <p ng-show="petForm.nombre.$error.maxlength" class="help-block">Nombre demasiado largo.</p>
+            <label for="nombre-mascota">Nombre</label>
+          </div>
+
+          <!--Sexo-->
+          <div class="input-field col s12">
+            <label for="sexo" ng-hide="$ctrl.Mascotas.sexo.length > 0">Sexo</label>
+            <select id="sexo" ng-model="$ctrl.Mascotas.sexo" material-select watch required>
+              <option value="Macho">Macho</option>
+              <option value="Hembra">Hembra</option>
+              <option value="Indefinido">Indefinido</option>
+            </select>
+          </div>
+
+          <!--Chip-->
+          <div class="input-field col s12">
+            <input id="chip" type="text" class="validate" ng-model="$ctrl.Mascotas.chip" required>
+            <label for="chip">Chip</label>
+          </div>
+
+          <!--Especie-->
+          <div class="input-field col s12">
+            <label for="specie" ng-hide="$ctrl.Mascotas.specie_id.length > 0">Especie</label>
+            <select id="specie" ng-model="$ctrl.Mascotas.specie_id" material-select watch required>
+              <option ng-repeat="Especie in $ctrl.Especies.data" value="{{ Especie.id }}">{{ Especie.nombre }}</option>
+            </select>
+          </div>       
+
+          <!--Raza-->
+          <div class="input-field col s12">
+            <label for="raza" ng-hide="$ctrl.Mascotas.race_id.length > 0">Raza</label>
+            <select id="raza" ng-model="$ctrl.Mascotas.race_id" material-select watch required>
+              <optgroup ng-repeat="Especie in $ctrl.Especies.data" label="{{ Especie.nombre }}">
+                <option ng-repeat="Raza in Especie.races" value="{{ Raza.id }}">{{ Raza.nombre }}</option>
+              </optgroup>
+            </select>
+          </div>  
+
+          <!--Crear raza-->
+          <div class="input-field col s12">
+            <input id="crearRaza" type="text" class="col s6 validate" ng-model="$ctrl.Raza.nombre">
+            <button class="btn-floating waves-effect btn-blue" ng-click="$ctrl.saveRace()"><i class="material-icons">publish</i></button>
+            <label for="crearRaza">Crear raza</label>
+          </div>     
+
+          <!--Caracter-->
+          <div class="input-field col s12">
+            <label for="caracter" ng-hide="$ctrl.Mascotas.caracter.length > 0">Caracter</label>
+            <select id="caracter" ng-model="$ctrl.Mascotas.caracter" material-select watch required>
+              <option ng-selected="$ctrl.Mascotas.caracter">{{ $ctrl.Mascotas.caracter }}</option>
+              <option value="Muy manso">Muy manso</option>
+              <option value="Manso">Manso</option>
+              <option value="Normal">Normal</option>
+              <option value="Agresivo">Agresivo</option>
+              <option value="Muy agresivo">Muy agresivo</option>
+            </select>
+          </div>
+
+          <!--Pelo-->
+          <div class="input-field col s12">
+            <input id="pelo" type="text" class="validate" ng-model="$ctrl.Mascotas.pelo" required>
+            <label for="pelo">Pelo</label>
+          </div>
+
+          <!--Capa-->
+          <div class="input-field col s12">
+            <input id="capa" type="text" class="validate" ng-model="$ctrl.Mascotas.capa" required>
+            <label for="capa">Capa</label>
+          </div>
+
+          <!--Nacimiento-->
+          <div class="input-field col s12">
+            <input id="nacimiento" type="text" class="datepicker" ng-model="$ctrl.Mascotas.nacimiento" required>
+            <label for="nacimiento">Nacimiento</label>
+          </div>
+
+          <!--Estado-->
+          <div class="input-field col s12">
+            <label for="estado" ng-hide="$ctrl.Mascotas.estado.length > 0">Estado</label>
+            <select id="estado" ng-model="$ctrl.Mascotas.estado" material-select watch required>
+              <option ng-repeat="Estado in $ctrl.Estados" value="{{ Estado }}">{{ Estado }}</option>
+            </select>
+          </div>
+
+          <!--Dueño-->
+          <div class="input-field col s12">
+            <label for="dueño" ng-hide="$ctrl.Mascotas.owner_id.length > 0">Dueño</label>
+            <select id="dueño" ng-model="$ctrl.Mascotas.owner_id" material-select watch required>
+              <option ng-repeat="Owner in $ctrl.Propietario.data" value="{{ Owner.id }}">{{ Owner.nombre }}</option>
+            </select>
+          </div>
+          
+          <!--Avatar-->
+          <div class="file-field input-field col s12">
+            <div class="btn waves-effect btn-blue">
+              <span>Seleccionar imagen</span>
+              <input type="file" nv-file-select="" uploader="$ctrl.uploader" name="file">
+            </div>
+            <div ng-repeat="item in uploader.queue">
+              <div class="file-path-wrapper col s7" ng-if="$ctrl.imageUpload.isImage(item._file)?true:item.remove()">
+                <input class="file-path validate" type="text" placeholder="Seleccionar archivo" ng-model="$ctrl.filePath">
+              </div>
+            </div>
+          </div>
+          <div class="col s12 wrap-upload-image">
+            <ul>
+              <li ng-repeat="item in $ctrl.uploader.queue">
+                <div ng-if="$ctrl.imageUpload.isImage(item._file)?true:item.cancel()">
+                  <div ng-thumb="{ file: item._file, height: 100 }" class="prev-img"></div>
+                  <i class="small material-icons icon-done">done</i>
+                  <span ng-show="uploader.isHTML5" class="file-size" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</span>
+                  <div>
+                    <a class="btn waves-effect waves-light" ng-click="$ctrl.uploadImage(item._file)">
+                      <i class="material-icons">backup</i>
+                    </a>
+                    <a class="btn waves-effect waves-light red" ng-click="item.remove()">
+                      <i class="material-icons">delete_forever</i>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="input-field">
+          <button class="btn waves-effect btn-orange" ng-click="$ctrl.savePet()" ng-class="{'disabled': petForm.$invalid}" ng-disabled="petForm.$invalid">Actualizar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</main>
+<ak-footer></ak-footer>

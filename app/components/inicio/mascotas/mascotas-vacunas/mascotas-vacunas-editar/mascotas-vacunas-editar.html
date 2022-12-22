@@ -1,0 +1,34 @@
+<section class="create-content">
+  <div class="container">
+    <div class="row">
+      <form class="col s12" ng-submit="$ctrl.saveVaccine()">
+        <div class="row">    
+
+          <!--Especie-->
+          <div class="input-field col s12">
+            <label for="especie" ng-hide="$ctrl.Vacunas.specie_id.length > 0">Especie</label>
+            <select id="especie" ng-model="$ctrl.Vacunas.specie_id" material-select watch>
+              <option ng-repeat="Especie in $ctrl.Especies.data" value="{{ Especie.id }}">{{Especie.nombre}}</option>
+            </select>
+          </div> 
+
+          <!--Tipo-->
+          <div class="input-field col s12">
+            <label for="vacuna">Vacuna</label>
+            <input id="vacuna" type="text" class="validate" ng-model="$ctrl.Vacunas.tipo">
+          </div> 
+
+          <!--Periodicidad-->
+          <div class="input-field col s12">
+            <label for="periodicidad">Periodicidad</label>
+            <input id="periodicidad" type="text" class="validate" ng-model="$ctrl.Vacunas.periodicidad">
+          </div> 
+          
+        </div>
+        <div class="input-field">
+          <button class="btn btn-create waves-effect" type="submit">Actualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

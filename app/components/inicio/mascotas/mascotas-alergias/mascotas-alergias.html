@@ -1,0 +1,64 @@
+<section class="section-alergias">
+  <div class="row">
+
+    <div class="col s12">
+      <div class="wrap-resume">
+        <div class="content-alergias">
+          <div class="card animated fadeInUp hoverable">
+            <div class="card-header">
+              <h4>Alergias</h4>
+            </div> 
+            <div class="card-content">
+              <div class="input-field wrap-search">
+                <i class="material-icons prefix">search</i>
+                <input type="text" placeholder="Buscar" ng-model="search">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m8">
+      <div class="card animated fadeInUp">
+        <table class="bordered responsive-table" ng-show="$ctrl.Alergias.data.length > 0">
+          <thead>
+            <tr>
+              <th data-field="texto">Alergia</th>
+              <th data-field="created">Fecha de creación</th>
+              <th data-field="updated">Fecha de modificación</th>
+              <th data-field="edit">Modificar</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="Alergia in $ctrl.Alergias.data | filter:search">
+              <td>
+                {{Alergia.nombre}}                  
+              </td>
+              <td>
+                <i class="material-icons left">query_builder</i>
+                {{Alergia.created_at | date:"dd/MM/yyyy',' h:mma"}}
+              </td>
+              <td>
+                <i class="material-icons left">query_builder</i>
+                {{Alergia.updated_at | date:"dd/MM/yyyy',' h:mma"}}
+              </td>
+              <td>
+                <a ui-sref="mascota.alergias-editar({ allergie_id: Alergia.allergie_id })" class="btn-floating waves-effect btn-edit" title="Editar"><i class="material-icons">edit</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col s12 animated fadeInUp hide-on-med-and-down">
+      <a ui-sref="mascota.alergias-crear" class="btn btn-crear waves-effect waves-light">Crear alergia</a>
+    </div>
+    <div class="fixed-action-btn horizontal hide-on-med-and-up" style="bottom: 45px; right: 24px;">
+      <a ui-sref="mascota.alergias-crear" class="btn-floating btn-large btn-create waves-effect waves-light" title="Crear"><i class="material-icons">add</i></a>
+    </div>
+  </div>
+</section>
+
+

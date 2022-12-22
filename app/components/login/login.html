@@ -1,0 +1,21 @@
+<section class="section-login">
+	<div class="wrap-login" dir-login>
+		<div class="login animated fadeIn">
+			<img src="img/logo-blanco.png" width="150" height="150">
+	    <form ng-submit="$ctrl.submit()">
+	      <div class="input-field">
+	        <i class="material-icons prefix">perm_identity</i>
+	        <input id="icon_prefix" type="email" class="validate" placeholder="E-mail" ng-model="$ctrl.email">
+	      </div>
+	      <div class="input-field">
+	        <i class="material-icons prefix">lock_outline</i>
+	        <input id="icon_pass" type="password" class="validate" placeholder="Contraseña" ng-model="$ctrl.password">
+	      </div>
+	      <div class="input-field wrap-btn">
+	      	<button class="waves-effect btn-large btn-orange" type="submit">Entrar</button>
+	      </div>
+	    </form>
+		</div>
+	</div>
+	<div class="background-login"></div>
+</section>

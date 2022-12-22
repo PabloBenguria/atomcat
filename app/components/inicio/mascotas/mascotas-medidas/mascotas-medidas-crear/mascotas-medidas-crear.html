@@ -1,0 +1,22 @@
+<section class="create-content">
+  <div class="container">
+    <div class="row">
+      <form class="col s12" ng-submit="$ctrl.saveSize()">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="altura" type="text" class="validate" ng-model="$ctrl.Medidas.altura">
+            <label for="altura">Altura en cm</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="peso" type="text" class="validate" ng-model="$ctrl.Medidas.peso">
+            <label for="peso">Peso en kg</label>
+          </div>     
+        </div>
+        <div class="input-field">
+          <button class="btn btn-create waves-effect" type="submit">Crear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+

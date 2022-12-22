@@ -1,0 +1,30 @@
+{
+  "short_name": "Atomcat",
+  "name": "Atomcat",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#DEE2E8",
+  "theme_color": "#DEE2E8",
+  "icons": [
+    {
+      "src": "img/logo-orange.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "img/logo-orange.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "img/logo-orange.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "img/logo-orange.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html ng-app="frontApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Atomcat</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
+    <link rel="stylesheet" href="css/common/main.css">
+    <!--<link rel="stylesheet" href="css/build/main.min.css">-->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.3.0/fullcalendar.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.3.0/fullcalendar.print.css" media="print">
+    <meta name="theme-color" content="#FF681C">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script>
+      // Load pre-caching Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }).catch(function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+  </head>
+  <body>
+  
+    <div ui-view></div>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+    <!--Angular resources-->
+    <script src="js/common/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.9/angular-filter.min.js"></script>
+    <script src="js/common/angular-resource.min.js"></script>
+    <script src="js/common/angular-ui-router.min.js"></script>
+    <script src="js/common/angular-file-upload.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.js"></script>
+       
+    <!--Angular app-->
+    <script src="app.js"></script>
+    <script src="services/profile.js"></script>
+    <script src="services/resources.js"></script>
+    <script src="services/authtoken.js"></script>
+    <script src="services/avatar.js"></script>
+    <script src="services/authinterceptor.js"></script>
+    <script src="directives/directives.js"></script>
+    
+    <!--<script src="js/build/components.min.js"></script>-->
+    
+    <script src="components/register/register.component.js"></script>
+    <script src="components/login/login.component.js"></script>
+    <script src="components/logout/logout.component.js"></script>
+    <script src="components/inicio/inicio.component.js"></script>
+    <script src="components/inicio/config/config.component.js"></script>
+    <script src="components/header/header.component.js"></script>
+    <script src="components/footer/footer.component.js"></script>
+    <script src="components/inicio/clientes/clientes.component.js"></script>
+    <script src="components/inicio/clientes/clientes-crear/clientes-crear.component.js"></script>
+    <script src="components/inicio/clientes/clientes-editar/clientes-editar.component.js"></script>
+    <script src="components/inicio/clientes/clientes-ver/clientes-ver.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-crear/mascotas-crear.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-editar/mascotas-editar.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-ver/mascotas-ver.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-perfil/mascotas-perfil.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-perfil/mascotas-perfil.directive.js"></script>
+    <script src="components/inicio/mascotas/mascotas-visitas/mascotas-visitas.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-visitas/mascotas-visitas-crear/mascotas-visitas-crear.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-visitas/mascotas-visitas-editar/mascotas-visitas-editar.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-notas/mascotas-notas.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-notas/mascotas-notas-crear/mascotas-notas-crear.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-notas/mascotas-notas-editar/mascotas-notas-editar.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-alergias/mascotas-alergias.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-alergias/mascotas-alergias-crear/mascotas-alergias-crear.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-alergias/mascotas-alergias-editar/mascotas-alergias-editar.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-medidas/mascotas-medidas.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-medidas/mascotas-medidas-crear/mascotas-medidas-crear.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-medidas/mascotas-medidas-editar/mascotas-medidas-editar.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-vacunas/mascotas-vacunas.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-vacunas/mascotas-vacunas-mascota-crear/mascotas-vacunas-mascota-crear.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-vacunas/mascotas-vacunas-mascota-editar/mascotas-vacunas-mascota-editar.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-vacunas/mascotas-vacunas-crear/mascotas-vacunas-crear.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-vacunas/mascotas-vacunas-editar/mascotas-vacunas-editar.component.js"></script>
+    <script src="components/inicio/mascotas/mascotas-agenda/mascotas-agenda.component.js"></script>
+    <script src="components/inicio/informes/informes.component.js"></script>
+    <script src="components/chat/chat.component.js"></script>
+    <script src="directives/pagination/dirPagination.js"></script>
+    <script src="services/auth.js"></script> 
+    
+    <!--Librerías JS-->
+    <script src="js/common/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.9/angular-materialize.min.js"></script>
+    <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="https://cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
+    <script src="js/common/jspdf.min.js"></script>
+    <script src="js/common/saveHtmlToPdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.3.0/fullcalendar.min.js"></script>
+    <script src="js/common/es.js"></script>
+
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script>
+        firebase.initializeApp({
+          apiKey: "AIzaSyD95S-ean9_wLBs-va5tz6tq-JNbHrfkuw",
+          authDomain: "atomcat-1ed02.firebaseapp.com",
+          databaseURL: "https://atomcat-1ed02.firebaseio.com",
+          storageBucket: "atomcat-1ed02.appspot.com",
+          messagingSenderId: "315399870657"
+        });
+        let auth = firebase.auth();
+        auth.onAuthStateChanged(function() {
+            auth.signInAnonymously();
+        });
+    </script>
+    
+  </body>
+</html>

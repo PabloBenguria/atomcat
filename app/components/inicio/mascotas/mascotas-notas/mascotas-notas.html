@@ -1,0 +1,47 @@
+<section class="section-notas">
+  <div class="row">
+
+    <div class="col s12">
+      <div class="wrap-resume">
+        <div class="content-notas">
+          <div class="card animated fadeInUp hoverable">
+            <div class="card-header">
+              <h4>Notas</h4>
+            </div> 
+            <div class="card-content">
+              <div class="input-field wrap-search">
+                <i class="material-icons prefix">search</i>
+                <input type="text" placeholder="Buscar" ng-model="search">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m4" ng-repeat="Nota in $ctrl.Notas.data | filter:search">
+      <div class="card small animated fadeInUp hoverable">
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{$ctrl.getSmallNote(Nota.texto)}}</span>
+        </div>
+        <div class="card-action">
+          <span>{{Nota.created_at | date:"dd/MM/yyyy',' h:mma"}}</span>
+          <a ui-sref="mascota.notas-editar({ note_id: Nota.note_id })" class="btn-floating waves-effect btn-edit"><i class="material-icons">edit</i></a>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><i class="small material-icons right">keyboard_arrow_down</i></span>
+          <p>{{Nota.texto}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 animated fadeInUp">
+      <a ui-sref="mascota.notas-crear" class="btn btn-crear waves-effect waves-light hide-on-med-and-down">Crear nota</a>
+    </div>
+    <div class="fixed-action-btn horizontal hide-on-med-and-up" style="bottom: 45px; right: 24px;">
+      <a ui-sref="mascota.notas-crear" class="btn-floating btn-large btn-create waves-effect waves-light" title="Crear"><i class="material-icons">add</i></a>
+    </div>
+
+  </div>
+</section>
+
+

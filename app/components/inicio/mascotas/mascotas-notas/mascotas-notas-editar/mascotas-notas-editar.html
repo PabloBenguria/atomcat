@@ -1,0 +1,18 @@
+<section class="create-content">
+  <div class="container">
+    <div class="row">
+      <form class="col s12" ng-submit="$ctrl.saveNote()">
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="texto">Texto</label>
+            <textarea id="texto" type="text" class="materialize-textarea validate" ng-model="$ctrl.Notas.texto"></textarea>
+          </div>      
+        </div>
+        <div class="input-field">
+          <button class="btn btn-edit waves-effect" type="submit">Actualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+

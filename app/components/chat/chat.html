@@ -1,0 +1,30 @@
+<div class="chat-content">
+	<div class="fixed-action-btn">
+    <div class="chat animated fadeInUp">
+      <form name="chatForm" ng-submit="$ctrl.sendChat()">
+        <p><i class="material-icons left">chat_bubble</i>Chatbot</p>
+        <div id="output-chat">
+          <div class="messages" ng-repeat="message in $ctrl.Messages track by $index">
+            <div class="row">
+              <div class="col s2">
+                <img ng-show="message.avatar.length > 0" ng-src="{{message.avatar}}" class="circle animated fadeIn" alt="Imagen perfil chatbot">
+              </div>
+              <div class="col s10">
+                <span class="animated fadeIn">{{message.msg}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-field">
+          <input id="input-chat" type="text" class="browser-default validate" placeholder="Escriba su pregunta" ng-model="$ctrl.Chat.pregunta" required>
+          <button type="submint" class="btn-floating waves-effect waves-light" ng-class="{'disabled': chatForm.$invalid}" ng-disabled="chatForm.$invalid">
+            <i class="material-icons">send</i>
+          </button>
+        </div>
+      </form>
+    </div>
+    <a class="btn-floating btn-large waves-effect waves-light btn-menu" ng-click="$ctrl.toggleChat()">
+      <i class="material-icons">question_answer</i>
+    </a>
+  </div>
+</div>

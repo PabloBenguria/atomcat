@@ -1,0 +1,127 @@
+<!--CABECERA-->
+<div class="card hoverable">
+  <div class="row">
+    <div class="card-image col s12 m4">
+      <img ng-src="{{$ctrl.Mascotas.avatar}}" alt="Imagen de perfil" class="responsive-img animated fadeIn">
+    </div>
+    <div class="card-content col s12 m8">
+      <h4 class="uppercase text-shadow">{{ $ctrl.Mascotas.nombre }}</h4>
+      <table>
+        <tr>
+          <td class="col s4 l3 subtitle">Propietario:</td>
+          <td class="col s8 l9 first-uppercase">{{ $ctrl.Mascotas.owner.nombre }}</td>
+        </tr>
+        <tr>
+          <td class="col s4 l3 subtitle">Nacimiento:</td>
+          <td class="col s8 l9 first-uppercase">{{ $ctrl.Mascotas.nacimiento | date:"dd/MM/yyyy'" }}</td>
+        </tr>
+        <tr>
+          <td class="col s4 l3 subtitle">Estado:</td>
+          <td class="col s8 l9 first-uppercase">{{ $ctrl.Mascotas.estado }}</td>
+        </tr>
+        <tr>
+          <td class="col s4 l3 subtitle">Especie:</td>
+          <td class="col s8 l9 first-uppercase">{{ $ctrl.Mascotas.specie.nombre }}</td>
+        </tr>
+        <tr>
+          <td class="col s4 l3 subtitle">Raza:</td>
+          <td class="col s8 l9">{{ $ctrl.Mascotas.race.nombre }}</td>
+        </tr>
+        <tr>
+          <td class="col s4 l3 subtitle">Chip:</td>
+          <td class="col s8 l9 first-uppercase">{{ $ctrl.Mascotas.chip }}</td>
+        </tr>
+        <tr>
+          <td class="col s4 l3 subtitle">Sexo:</td>
+          <td class="col s8 l9">{{ $ctrl.Mascotas.sexo }}</td>
+        </tr>
+        <tr>
+          <td class="col s4 l3 subtitle">Caracter:</td>
+          <td class="col s8 l9">{{ $ctrl.Mascotas.caracter }}</td>
+        </tr>
+        <tr>
+          <td class="col s4 l3 subtitle">Capa:</td>
+          <td class="col s8 l9">{{ $ctrl.Mascotas.capa }}</td>
+        </tr>
+        <tr>
+          <td class="col s4 l3 subtitle">Pelo:</td>
+          <td class="col s8 l9">{{ $ctrl.Mascotas.pelo }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div ng-repeat="Alergia in $ctrl.Mascotas.allergies">
+  <dir-toast alergia="Alergia.nombre"></dir-toast>
+</div>
+
+<div class="row">
+  <div class="col s12 m4">
+    <!--NOTAS-->
+    <div class="wrap-resume">
+      <div class="content-notas">
+        <div class="card animated fadeInUp hoverable">
+          <div class="card-header">
+            <h4>Notas</h4>
+          </div> 
+          <div class="card-content" ng-hide="$ctrl.Mascotas.notes.length > 0">
+            <p>No existen notas para esta mascota.</p>
+          </div>
+          <div class="card-content" ng-show="$ctrl.Mascotas.notes.length > 0">
+            <p class="subtitle">Notas</p>
+            <h3>{{$ctrl.Mascotas.notes.length}}</h3>
+          </div>
+          <div class="card-footer" ng-show="$ctrl.Mascotas.notes.length > 0">
+            <p>Última nota del: <span>{{$ctrl.Mascotas.notes[$ctrl.Mascotas.notes.length-1].created_at | date:"dd/MM/yyyy'"}}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m4">
+    <!--VISITAS-->
+    <div class="wrap-resume">
+      <div class="content-visitas">
+        <div class="card animated fadeInUp hoverable">
+          <div class="card-header">
+            <h4>Visitas</h4>
+          </div> 
+          <div class="card-content" ng-hide="$ctrl.Mascotas.visits.length > 0">
+            <p>No existen visitas para esta mascota.</p>
+          </div>
+          <div class="card-content" ng-show="$ctrl.Mascotas.visits.length > 0">
+            <p class="subtitle">Visitas</p>
+            <h3>{{$ctrl.Mascotas.visits.length}}</h3>
+          </div>
+          <div class="card-footer" ng-show="$ctrl.Mascotas.visits.length > 0">
+            <p>Última visita el: <span>{{$ctrl.Mascotas.visits[$ctrl.Mascotas.visits.length-1].created_at | date:"dd/MM/yyyy'"}}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m4">
+    <!--ALERGIAS-->
+    <div class="wrap-resume">
+      <div class="content-alergias">
+        <div class="card animated fadeInUp hoverable">
+          <div class="card-header">
+            <h4>Alergias</h4>
+          </div> 
+          <div class="card-content" ng-hide="$ctrl.Mascotas.allergies.length > 0">
+            <p>No existen alergias para esta mascota.</p>
+          </div>
+          <div class="card-content" ng-show="$ctrl.Mascotas.allergies.length > 0">
+            <p class="subtitle">Alergias</p>
+            <h3>{{$ctrl.Mascotas.allergies.length}}</h3>
+          </div>
+          <div class="card-footer" ng-show="$ctrl.Mascotas.allergies.length > 0">
+            <p>Última alergia del: <span>{{$ctrl.Mascotas.allergies[$ctrl.Mascotas.allergies.length-1].created_at | date:"dd/MM/yyyy'"}}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

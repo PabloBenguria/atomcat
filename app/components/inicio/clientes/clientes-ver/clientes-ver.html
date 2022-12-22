@@ -1,0 +1,92 @@
+<main>
+  <div class="profile-content">
+    <div class="container">
+      <div class="row">
+        <div class="col s12" pdf-save-content="idCliente">
+
+          <!--CLIENTE-->
+          <div class="card hoverable">
+            <div class="row">
+              <div class="card-image col s12 m4">
+                <img ng-src="{{$ctrl.Clientes.avatar}}" alt="Imagen de perfil" class="responsive-img">
+              </div>
+              <div class="card-content col s12 m7">
+                <h4 class="uppercase text-shadow">{{ $ctrl.Clientes.nombre }}</h4>
+                <table>
+                  <tr>
+                    <td class="col s4 m6 l4 subtitle">DNI:</td>
+                    <td class="col s8 m6 l8">{{ $ctrl.Clientes.dni }}</td>
+                  </tr>
+                  <tr>
+                    <td class="col s4 m6 l4 subtitle">Dirección:</td>
+                    <td class="col s8 m6 l8 first-uppercase">{{ $ctrl.Clientes.direccion }}</td>
+                  </tr>
+                  <tr>
+                    <td class="col s4 m6 l4 subtitle">Población:</td>
+                    <td class="col s8 m6 l8 first-uppercase">{{ $ctrl.Clientes.poblacion }}</td>
+                  </tr>
+                  <tr>
+                    <td class="col s4 m6 l4 subtitle">CP:</td>
+                    <td class="col s8 m6 l8">{{ $ctrl.Clientes.cp }}</td>
+                  </tr>
+                  <tr>
+                    <td class="col s4 m6 l4 subtitle">Provincia:</td>
+                    <td class="col s8 m6 l8 first-uppercase">{{ $ctrl.Clientes.provincia }}</td>
+                  </tr>
+                  <tr><td></td></tr>
+                  <tr>
+                    <td class="col s4 m6 l4 subtitle">Teléfono:</td>
+                    <td class="col s8 m6 l8"><a href="callto:{{ $ctrl.Clientes.telefono}}" title="Llamar">{{ $ctrl.Clientes.telefono }}</a></td>
+                  </tr>
+                  <tr>
+                    <td class="col s4 m6 l4 subtitle">Móvil:</td>
+                    <td class="col s8 m6 l8"><a href="callto:{{ $ctrl.Clientes.movil}}" title="Llamar">{{ $ctrl.Clientes.movil }}</a></td>
+                  </tr>
+                  <tr>
+                    <td class="col s4 m6 l4 subtitle">Email:</td>
+                    <td class="col s8 m6 l8"><a href="mailto:{{ $ctrl.Clientes.email }}" class="email-link" title="Enviar email">{{ $ctrl.Clientes.email }}</a></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col s12 m1">
+                <a pdf-save-button="idCliente" 
+                  pdf-name="{{$ctrl.Clientes.nombre}}.pdf" 
+                  class="btn-floating btn-large waves-effect waves-light">
+                  <i class="material-icons">get_app</i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!--end CLIENTE-->
+
+          <!--MASCOTAS-->
+          <div class="row">
+            <div class="col s12 m6" ng-repeat="Mascota in $ctrl.Clientes.pets">
+              <div class="card-panel hoverable">
+                <div class="bookmark center-align z-depth-1">
+                  <span>Mascota</span>
+                </div>
+                <p>&nbsp;</p>
+                <div class="row">
+                  <div class="col s12 l3 wrap-pet-avatar">
+                    <a ui-sref="mascota.perfil({ id: Mascota.id })">
+                      <img ng-src="{{Mascota.avatar}}" alt="Imagen perfil" title="Ver mascota" class="circle responsive-img hoverable" width="177" height="177">
+                    </a>
+                  </div>
+                  <div class="col s12 l9">
+                    <p class="subtitle">Nombre: <span class="black-text text-shadow">{{ Mascota.nombre | uppercase }}</span></p>
+                    <p class="subtitle">Sexo: <span class="black-text">{{ Mascota.sexo }}</span></p>
+                    <p class="subtitle">Nacimiento: <span class="black-text">{{ Mascota.nacimiento | date:"dd/MM/yyyy'" }}</span></p>
+                    <p class="subtitle">Caracter: <span class="black-text caracter"><i class="sprite sprite-dog-{{ Mascota.caracter }}"></i></span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end MASCOTAS-->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<ak-footer></ak-footer>

@@ -1,0 +1,39 @@
+<section class="create-content">
+  <div class="container">
+    <div class="row">
+      <form class="col s12" name="petVaccineForm" ng-submit="$ctrl.savePetVaccine()">
+        <div class="row">    
+          <!--Última Vacuna-->
+          <div class="input-field col s12">
+            <label for="ultima" ng-hide="$ctrl.MascotasVacunas.vaccine_vaccine_id.length > 0">Vacuna</label>
+            <select id="ultima" ng-model="$ctrl.MascotasVacunas.vaccine_vaccine_id" material-select watch required>
+              <optgroup ng-repeat="Especie in $ctrl.Especies.data" label="{{ Especie.nombre }}">
+                <option ng-repeat="Vacuna in Especie.vaccines" value="{{ Vacuna.vaccine_id }}">{{ Vacuna.tipo }}</option>
+              </optgroup>
+            </select>
+          </div> 
+
+          <!--Próxima Vacuna-->
+          <div class="input-field col s12">
+            <label for="proxima" ng-hide="$ctrl.Vacunas.tipo.length > 0">Próxima vacuna</label>
+            <select id="proxima" ng-model="$ctrl.MascotasVacunas.proxima_vacuna" material-select watch required>
+              <optgroup ng-repeat="Especie in $ctrl.Especies.data" label="{{ Especie.nombre }}">
+                <option ng-repeat="Vacuna in Especie.vaccines" value="{{ Vacuna.tipo }}">{{ Vacuna.tipo }}</option>
+              </optgroup>
+            </select>
+          </div> 
+
+          <!--Próxima fecha Vacuna-->
+          <div class="input-field col s12">
+            <input id="proxima-fecha" type="text" class="datepicker" ng-model="$ctrl.MascotasVacunas.proxima_fecha" required>
+            <label for="proxima-fecha">Fecha próxima vacuna</label>
+          </div>
+          
+        </div>
+        <div class="input-field">
+          <button class="btn btn-create waves-effect" type="submit" ng-class="{'disabled': petVaccineForm.$invalid}" ng-disabled="petVaccineForm.$invalid">Crear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

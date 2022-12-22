@@ -1,0 +1,28 @@
+{
+  "name": "api-atomcat",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Pablo",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "1.15.2",
+    "cors": "^2.8.1",
+    "crypto": "0.0.3",
+    "express": "4.14.0",
+    "fs": "0.0.1-security",
+    "jwt-simple": "^0.2.0",
+    "moment": "^2.17.1",
+    "morgan": "1.7.0",
+    "mysql": "^2.13.0",
+    "pbkdf2-sha256": "^1.1.1",
+    "pg": "^6.1.2",
+    "sequelize": "3.24.3",
+    "sequelize-cli": "^2.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "1.10.2"
+  }
+}

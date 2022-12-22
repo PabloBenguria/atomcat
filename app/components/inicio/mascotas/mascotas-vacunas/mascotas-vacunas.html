@@ -1,0 +1,104 @@
+<section class="section-mascota-vacunas">
+
+  <div class="container-fluid" ng-show="$ctrl.Mascotas.petVaccines.length > 0">
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header waves-effect"><i class="material-icons">date_range</i>Calendario de vacunaciones</div>
+        <div class="collapsible-body">
+          <div class="card animated fadeIn hoverable">
+            <h5>Especie: {{$ctrl.Mascotas.specie.nombre}}</h5>
+            <table class="table bordered striped table-calendario-vacunas" ng-show="$ctrl.Especies.data.length > 0">
+              <thead>
+                <tr>
+                  <th data-field="vacuna">Vacuna</th>
+                  <th data-field="periodo">Periodicidad</th>
+                  <th data-field="edit">Modificar</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat="Vacuna in $ctrl.Mascotas.specie.vaccines | orderBy: 'created_at'">
+                  <td>
+                    {{Vacuna.tipo}}
+                  </td>
+                  <td>
+                    {{Vacuna.periodicidad}}                  
+                  </td>
+                  <td>
+                    <a ui-sref="mascota.vacunas-editar({ vaccine_id: Vacuna.vaccine_id })" class="btn-floating waves-effect btn-edit"><i class="material-icons">edit</i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <a ui-sref="mascota.vacunas-crear" class="btn waves-effect btn-crear" title="Crear">Crear vacuna</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card animated fadeInUp hoverable">
+          <h4>Historial de vacunas</h4>
+          <table class="table bordered striped table-vacunas">
+            <thead>
+              <tr>
+                <th data-field="vacuna">Vacuna</th>
+                <th data-field="periodo">Periodicidad</th>
+                <th data-field="fecha">Fecha</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr ng-repeat="VPrevia in $ctrl.Vacunas.vaccines | orderBy: 'created_at'">
+                <td>
+                  {{VPrevia.tipo}}
+                </td>
+                <td>
+                  {{VPrevia.periodicidad}}                  
+                </td>
+                <td>
+                  {{VPrevia.created_at | date:"dd/MM/yyyy"}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="card animated fadeInUp hoverable">
+          <h4>Próximas vacunas</h4>
+          <table class="table bordered striped">
+            <thead>
+              <tr>
+                <th data-field="vacuna">Vacuna</th>
+                <th data-field="periodo">Fecha</th>
+                <th data-field="edit">Modificar</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr ng-repeat="VProxima in $ctrl.Mascotas.petVaccines | orderBy: 'proxima_fecha'">
+                <td>
+                  {{VProxima.proxima_vacuna}}
+                </td>
+                <td>
+                  {{VProxima.proxima_fecha | date:"dd/MM/yyyy"}}                  
+                </td>
+                <td>
+                  <a ui-sref="mascota.vacunas-mascota-editar({ petvaccine_id: VProxima.petvaccine_id })" class="btn-floating waves-effect btn-edit"><i class="material-icons">edit</i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col s12 animated fadeInUp hide-on-med-and-down">
+        <a ui-sref="mascota.vacunas-mascota-crear" class="btn waves-effect btn-crear" title="Crear">Crear vacuna</a>
+      </div>
+      <div class="fixed-action-btn horizontal hide-on-med-and-up" style="bottom: 45px; right: 24px;">
+        <a ui-sref="mascota.vacunas-mascota-crear" class="btn-floating btn-large btn-create waves-effect waves-light" title="Crear"><i class="material-icons">add</i></a>
+      </div>
+    </div>
+
+  </div>
+</section>

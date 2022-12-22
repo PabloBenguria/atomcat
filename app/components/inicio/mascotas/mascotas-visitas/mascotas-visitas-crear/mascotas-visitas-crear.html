@@ -1,0 +1,41 @@
+<section class="create-content">
+  <div class="container">
+    <div class="row">
+      <form class="col s12" ng-submit="$ctrl.saveVisit()">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="anamnesis" type="text" class="validate" ng-model="$ctrl.Visitas.anamnesis">
+            <label for="anamnesis">Anamnesis</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="diagnostico" type="text" class="materialize-textarea validate" ng-model="$ctrl.Visitas.diagnostico"></textarea>
+            <label for="diagnostico">Diagnóstico</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="tratamiento" type="text" class="validate" ng-model="$ctrl.Visitas.tratamiento">
+            <label for="tratamiento">Tratamiento</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="tipo" type="text" class="validate" ng-model="$ctrl.Visitas.tipo">
+            <label for="tipo">Tipo</label>
+          </div>
+          <div class="input-field col s12">
+            <label for="responsable" ng-hide="$ctrl.Visitas.visits.length > 0">Responsable</label>
+            <select id="responsable" ng-model="$ctrl.Visitas.responsable" material-select watch required>
+              <option value="Veterinario">Veterinario</option>
+              <option value="Auxiliar">Auxiliar</option>
+            </select>
+          </div>
+          <div class="input-field col s12">
+            <input id="fecha" type="text" class="datepicker" ng-model="$ctrl.Visitas.updated_at">
+            <label for="fecha">Fecha</label>
+          </div>        
+        </div>
+        <div class="input-field">
+          <button class="btn btn-create waves-effect" type="submit">Crear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+

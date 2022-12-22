@@ -1,0 +1,98 @@
+<main class="crear-cliente">
+  <div class="loading">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-orange-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <form name="ownerForm" class="col s12 m6 offset-m2 hoverable" ng-submit="$ctrl.saveCustomer()" enctype="multipart/form-data">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="nombre" type="text" name="nombre" class="validate" ng-model="$ctrl.Clientes.nombre" ng-minlength="5" ng-maxlength="30" required>
+            <p ng-show="ownerForm.nombre.$error.minlength" class="help-block">Nombre demasiado corto.</p>
+            <p ng-show="ownerForm.nombre.$error.maxlength" class="help-block">Nombre demasiado largo.</p>
+            <label for="nombre">Nombre</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="direccion" type="text" class="validate" ng-model="$ctrl.Clientes.direccion" required>
+            <label for="direccion">Dirección</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="poblacion" type="text" class="validate" ng-model="$ctrl.Clientes.poblacion" required>
+            <label for="poblacion">Población</label>
+          </div>
+          <div class="input-field col s12">
+            <select ng-model="$ctrl.Clientes.provincia" material-select watch required>
+              <option value="">Provincia</option>
+              <option ng-selected="$ctrl.Clientes.provincia">{{$ctrl.Clientes.provincia}}</option>
+              <option ng-repeat="Provincia in $ctrl.Provincias" value="{{ Provincia }}">{{ Provincia }}</option>
+            </select>
+          </div>
+          <div class="input-field col s12">
+            <input id="cp" type="number" class="validate" ng-model="$ctrl.Clientes.cp" required>
+            <label for="cp">C.P.</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="dni" type="text" class="validate" ng-model="$ctrl.Clientes.dni" required>
+            <label for="dni">DNI</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="tlf" type="number" class="validate" ng-model="$ctrl.Clientes.telefono" required>
+            <label for="tlf">Teléfono</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="movil" type="number" class="validate" ng-model="$ctrl.Clientes.movil" required>
+            <label for="movil">Móvil</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate" ng-model="$ctrl.Clientes.email" required>
+            <label for="email" data-error="Incorrecto" data-success="Correcto">Email</label>
+          </div>
+          <div class="file-field input-field col s12">
+            <div class="btn waves-effect btn-blue">
+              <span>Seleccionar imagen</span>
+              <input type="file" nv-file-select="" uploader="$ctrl.uploader" name="file">
+            </div>
+            <div ng-repeat="item in $ctrl.uploader.queue">
+              <div class="file-path-wrapper col s7" ng-if="$ctrl.imageUpload.isImage(item._file)?true:item.remove()">
+                <input class="file-path validate" type="text" placeholder="Seleccionar archivo" ng-model="$ctrl.filePath">
+              </div>
+            </div>
+          </div>
+          <div class="col s12 wrap-upload-image">
+            <ul>
+              <li ng-repeat="item in $ctrl.uploader.queue">
+                <div ng-if="$ctrl.imageUpload.isImage(item._file)?true:item.cancel()">
+                  <div ng-thumb="{ file: item._file, height: 100 }" class="prev-img"></div>
+                  <i class="small material-icons icon-done">done</i>
+                  <span ng-show="uploader.isHTML5" class="file-size" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</span>
+                  <div>
+                    <a class="btn waves-effect waves-light" ng-click="$ctrl.uploadImage(item._file)">
+                      <i class="material-icons">backup</i>
+                    </a>
+                    <a class="btn waves-effect waves-light red" ng-click="item.remove()">
+                      <i class="material-icons">delete_forever</i>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="input-field">
+          <button class="btn waves-effect btn-orange" type="submit" ng-class="{'disabled': ownerForm.$invalid}" ng-disabled="ownerForm.$invalid">Actualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+<ak-footer></ak-footer>
